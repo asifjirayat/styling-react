@@ -1,3 +1,4 @@
+import Button from "./Button.jsx";
 import { useState } from "react";
 
 export default function AuthInputs() {
@@ -50,12 +51,8 @@ export default function AuthInputs() {
         </p>
       </div>
       <div className="actions">
-        <button type="button" className="text-button">
-          Create a new account
-        </button>
-        <button className="button" onClick={handleLogin}>
-          Sign in
-        </button>
+        <button type="button">Create a new account</button>
+        <Button onClick={handleLogin}>Sign in</Button>
       </div>
     </div>
   );
