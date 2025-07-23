@@ -22,8 +22,8 @@ export default function AuthInputs() {
   }
 
   const { email, password } = enteredInput;
-  const validEmail = submitted && email.includes("@");
-  const validPassword = submitted && password.trim().length > 6;
+  const validEmail = email.includes("@");
+  const validPassword = password.trim().length >= 6;
 
   return (
     <div id="auth-inputs">
@@ -32,7 +32,7 @@ export default function AuthInputs() {
           <label>Email</label>
           <input
             type="email"
-            className={!validEmail ? "invalid" : undefined}
+            className={submitted && !validEmail ? "invalid" : undefined}
             onChange={(event) => handleInputChange("email", event.target.value)}
             value={enteredInput.email}
           />
@@ -41,7 +41,7 @@ export default function AuthInputs() {
           <label>Password</label>
           <input
             type="password"
-            className={!validPassword ? "invalid" : undefined}
+            className={submitted && !validPassword ? "invalid" : undefined}
             onChange={(event) =>
               handleInputChange("password", event.target.value)
             }
